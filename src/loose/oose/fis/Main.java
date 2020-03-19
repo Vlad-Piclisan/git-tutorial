@@ -13,13 +13,19 @@ public class Main {
 
     public static void main(String[] args) {
 
-        String[] xmlList = new String[6];
+        String[] xmlList = new String[12];
         xmlList[0] = "<tag1>";
         xmlList[1] = "text1";
         xmlList[2] = "</tag1>";
         xmlList[3] = "<tag2>";
         xmlList[4] = "text2";
         xmlList[5] = "</tag2>";
+        xmlList[3] = "<tag7>";
+        xmlList[4] = "text8";
+        xmlList[5] = "</tag7>";
+        xmlList[3] = "<tag9>";
+        xmlList[4] = "text9";
+        xmlList[5] = "</tag9>";
 
         Document xml = new XML(xmlList);
 
@@ -29,6 +35,7 @@ public class Main {
         Procesor c1 = new ProcesorCautare("text1");
         Procesor c2 = new ProcesorCautare("text3");
         Procesor c3 = new ProcesorCautare("text2");
+        Procesor c6= new ProcesorCautare("text9");
 
         ProcesorCompus pc1 = new ProcesorCompus();
         pc1.adaugaProcesor(c1);
@@ -38,6 +45,10 @@ public class Main {
         pc2.adaugaProcesor(pc1);
         pc2.adaugaProcesor(c3);
 
+        ProcesorCompus pc6= new ProcesorCompus();
+        pc6.adaugaProcesor(c6);
+
         System.out.println(pc2.proceseaza(documente));
+        System.out.println(pc6.proceseaza(documente));
     }
 }
